@@ -36,7 +36,7 @@ public class Reservation {
 
 
     public void setCheckIn(LocalDate checkIn) { this.checkIn = checkIn; }
-    public void setCheckOut(LocalDate checkOut) { this.checkIn = checkOut; }
+    public void setCheckOut(LocalDate checkOut) { this.checkOut = checkOut; }
 
     public void print() {
         System.out.println("Reservation created for: " + getGuestName());
