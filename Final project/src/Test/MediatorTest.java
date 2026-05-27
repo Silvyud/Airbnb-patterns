@@ -1,3 +1,7 @@
+package Test;
+
+import Mediator.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,12 +17,12 @@ class MediatorTest {
 
         owner.publishLodging(lodging);
 
-        boolean reserved = user.reserveLodging("L001");
+        boolean reserved = user.reserveLodging("L001", 1);
 
         assertTrue(reserved);
-        assertTrue(lodging.isReserved());
-        assertEquals(400.0, user.getBalance());
-        assertEquals(80.0, owner.getBalance());
+        Assertions.assertTrue(lodging.isReserved());
+        Assertions.assertEquals(400.0, user.getBalance());
+        Assertions.assertEquals(80.0, owner.getBalance());
     }
 
     @Test
@@ -26,10 +30,10 @@ class MediatorTest {
         Mediator mediator = new Mediator();
         User user = new User("User 1", "U001", 500.0, mediator);
 
-        boolean reserved = user.reserveLodging("UNKNOWN");
+        boolean reserved = user.reserveLodging("UNKNOWN", 1);
 
         assertFalse(reserved);
-        assertEquals(500.0, user.getBalance());
+        Assertions.assertEquals(500.0, user.getBalance());
     }
 
     @Test
@@ -41,12 +45,12 @@ class MediatorTest {
 
         owner.publishLodging(lodging);
 
-        boolean reserved = user.reserveLodging("L001");
+        boolean reserved = user.reserveLodging("L001", 3);
 
         assertFalse(reserved);
-        assertTrue(lodging.isReserved());
-        assertEquals(500.0, user.getBalance());
-        assertEquals(0.0, owner.getBalance());
+        Assertions.assertTrue(lodging.isReserved());
+        Assertions.assertEquals(500.0, user.getBalance());
+        Assertions.assertEquals(0.0, owner.getBalance());
     }
 
     @Test
@@ -58,12 +62,12 @@ class MediatorTest {
 
         owner.publishLodging(lodging);
 
-        boolean reserved = user.reserveLodging("L001");
+        boolean reserved = user.reserveLodging("L001", 2);
 
         assertFalse(reserved);
-        assertFalse(lodging.isReserved());
-        assertEquals(50.0, user.getBalance());
-        assertEquals(0.0, owner.getBalance());
+        Assertions.assertFalse(lodging.isReserved());
+        Assertions.assertEquals(50.0, user.getBalance());
+        Assertions.assertEquals(0.0, owner.getBalance());
     }
 
     @Test
@@ -76,14 +80,14 @@ class MediatorTest {
 
         owner.publishLodging(lodging);
 
-        boolean firstReservation = firstUser.reserveLodging("L001");
-        boolean secondReservation = secondUser.reserveLodging("L001");
+        boolean firstReservation = firstUser.reserveLodging("L001", 2);
+        boolean secondReservation = secondUser.reserveLodging("L001", 3);
 
         assertTrue(firstReservation);
         assertFalse(secondReservation);
-        assertTrue(lodging.isReserved());
-        assertEquals(400.0, firstUser.getBalance());
-        assertEquals(500.0, secondUser.getBalance());
-        assertEquals(80.0, owner.getBalance());
+        Assertions.assertTrue(lodging.isReserved());
+        Assertions.assertEquals(300.0, firstUser.getBalance());
+        Assertions.assertEquals(500.0, secondUser.getBalance());
+        Assertions.assertEquals(80.0, owner.getBalance());
     }
 }

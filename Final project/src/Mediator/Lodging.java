@@ -1,3 +1,5 @@
+package Mediator;
+
 public class Lodging {
     private String id;
     private String ubication;

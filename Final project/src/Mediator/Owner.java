@@ -1,3 +1,5 @@
+package Mediator;
+
 public class Owner {
     private final String name;
     private double balance;

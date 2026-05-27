@@ -1,3 +1,5 @@
+package Mediator;
+
 public class User{
     private final String name;
     private final String id;
@@ -27,7 +29,7 @@ public class User{
         return false;
     }
 
-    public boolean reserveLodging(String lodgingId) {
-        return mediator.reserveLodging(this, lodgingId);
+    public boolean reserveLodging(String lodgingId, int days) {
+        return mediator.reserveLodging(this, lodgingId, days);
     }
 }

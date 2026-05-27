@@ -1,3 +1,5 @@
+package Mediator;
+
 import java.util.HashMap;
 
 public class Mediator {
@@ -16,10 +18,10 @@ public class Mediator {
         bookings.put(lodging.getId(), lodging);
     }
 
-    public boolean reserveLodging(User user, String lodgingId) {
+    public boolean reserveLodging(User user, String lodgingId, int days) {
         if (bookings.containsKey(lodgingId)) {
             Lodging lodging = bookings.get(lodgingId);
-            if (!lodging.isReserved() && user.pay(lodging.getCostPerNight())) {
+            if (!lodging.isReserved() && user.pay(lodging.getCostPerNight()* days)) {
                 lodging.setReserved(true);
                 Owner owner = owners.get(lodgingId);
                 owner.addToBalance(lodging.getCostPerNight() * ownerPercentage);
