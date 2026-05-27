@@ -1,5 +1,7 @@
 package Mediator;
 
+import Utilities.Lodging;
+
 public class Owner {
     private final String name;
     private double balance;

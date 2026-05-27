@@ -1,5 +1,7 @@
 package Mediator;
 
+import Utilities.Lodging;
+
 import java.util.HashMap;
 
 public class Mediator {

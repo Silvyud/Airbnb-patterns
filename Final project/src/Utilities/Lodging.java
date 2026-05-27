@@ -1,4 +1,4 @@
-package Mediator;
+package Utilities;
 
 public class Lodging {
     private String id;
@@ -27,6 +27,9 @@ public class Lodging {
     }
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
+    }
+    public String getUbication() {
+        return ubication;
     }
 
     @Override
