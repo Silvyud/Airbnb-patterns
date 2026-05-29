@@ -18,12 +18,12 @@ public class Reservation {
         this.state = new Pending();
     }
 
-    public void confirm() { state.confirm(this); }
-    public void pay() { state.pay(this); }
-    public void checkIn() { state.checkIn(this); }
-    public void checkOut() { state.checkOut(this); }
-    public void cancel() { state.cancel(this); }
-    public void requestRefund() { state.requestRefund(this); }
+    public String confirm() { return state.confirm(this); }
+    public String pay() { return state.pay(this); }
+    public String checkIn() { return state.checkIn(this); }
+    public String checkOut() { return state.checkOut(this); }
+    public String cancel() { return state.cancel(this); }
+    public String requestRefund() { return state.requestRefund(this); }
 
     public void setState(ReservationState state) { this.state = state; }
 
@@ -38,11 +38,11 @@ public class Reservation {
     public void setCheckIn(LocalDate checkIn) { this.checkIn = checkIn; }
     public void setCheckOut(LocalDate checkOut) { this.checkOut = checkOut; }
 
-    public void print() {
-        System.out.println("Reservation created for: " + getGuestName());
-        System.out.println("Property: " + getPropertyName());
-        System.out.println("Total price: $" + getTotalPrice());
-        System.out.println("Current state: " + getStateName());
+    public String print() {
+        return "Reservation created for: " + getGuestName() +
+                "\nProperty: " + getPropertyName() +
+                "\nTotal price: $" + String.valueOf(getTotalPrice()) +
+                "\nCurrent state: " + getStateName();
     }
 
 }
