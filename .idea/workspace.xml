@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="755dacfe-a911-4f29-bb88-63496b89e6cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/Completed.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/Completed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/Confirmed.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/Confirmed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/InProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/InProgress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/Payed.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/Payed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/Pending.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/Pending.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/ReservationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/ReservationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final project/src/State/ReservationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final project/src/State/ReservationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,15 +56,31 @@
     &quot;assignee&quot;: &quot;yisusMurcia&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Silvyud/Airbnb-patterns&quot;,
-    &quot;accountId&quot;: &quot;34551308-1f58-40c7-aad6-82f8c4976f3c&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Silvyud/Airbnb-patterns.git",
+    "accountId": "31748166-7b56-420b-abf2-88f60dd2ec37"
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
-    <commands />
-    <urls />
+    <McpServerCommand sourceId="UserConfigurationSource">
+      <option name="allowedToolsNames" />
+      <option name="enabled" value="true" />
+      <option name="name" value="" />
+      <option name="programPath" value="" />
+      <option name="arguments" value="" />
+      <option name="workingDirectory" value="" />
+      <envs />
+    </McpServerCommand>
+    <McpServerCommand sourceId="UserConfigurationSource">
+      <option name="allowedToolsNames" />
+      <option name="enabled" value="true" />
+      <option name="name" value="" />
+      <option name="programPath" value="" />
+      <option name="arguments" value="" />
+      <option name="workingDirectory" value="" />
+      <envs />
+    </McpServerCommand>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -69,6 +96,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
@@ -77,6 +105,9 @@
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/julia/Downloads/Airbnb-patterns",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -99,6 +130,7 @@
       <workItem from="1779646934921" duration="60000" />
       <workItem from="1779887669745" duration="29000" />
       <workItem from="1779887765632" duration="126000" />
+      <workItem from="1780058334001" duration="2053000" />
     </task>
     <servers />
   </component>
