@@ -1,5 +1,4 @@
 package Observer;
-
 import Utilities.Lodging;
 
 import java.util.ArrayList;

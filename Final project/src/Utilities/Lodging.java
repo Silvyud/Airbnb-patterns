@@ -1,11 +1,11 @@
 package Utilities;
 
 public class Lodging {
-    private String id;
-    private String ubication;
-    private int numOfRooms;
-    private int numOfBathrooms;
-    private double costPerNight;
+    private final String id;
+    private final String ubication;
+    private final int numOfRooms;
+    private final int numOfBathrooms;
+    private final double costPerNight;
     private boolean reserved;
 
     public Lodging(String id, String ubication, int numOfRooms, int numOfBathrooms, double costPerNight, boolean reserved) {
@@ -30,6 +30,14 @@ public class Lodging {
     }
     public String getUbication() {
         return ubication;
+    }
+
+    public int getNumOfRooms() {
+        return numOfRooms;
+    }
+
+    public int getNumOfBathrooms() {
+        return numOfBathrooms;
     }
 
     @Override
