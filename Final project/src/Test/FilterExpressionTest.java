@@ -14,7 +14,7 @@ class FilterExpressionTest {
     void evaluateSimpleExpressions() {
         Lodging lodging = new Lodging("L1", "Cartagena", 3, 2, 120.0, false);
 
-        FilterExpression cartagenaFilter = new UbicationFilter("Cartagena");
+        FilterExpression cartagenaFilter = new LocationFilter("Cartagena");
         FilterExpression roomFilter = new RoomFilter(3, new EqualEval());
         FilterExpression bathroomFilter = new BathroomFilter(2, new EqualEval());
         FilterExpression maxCostFilter = new CostFilter(150.0, new LessEqualEval());
@@ -24,7 +24,7 @@ class FilterExpressionTest {
         assertTrue(bathroomFilter.evaluate(lodging));
         assertTrue(maxCostFilter.evaluate(lodging));
 
-        FilterExpression bogotaFilter = new UbicationFilter("Bogota");
+        FilterExpression bogotaFilter = new LocationFilter("Bogota");
         FilterExpression expensiveFilter = new CostFilter(100.0, new LessEqualEval());
 
         assertFalse(bogotaFilter.evaluate(lodging));
@@ -35,7 +35,7 @@ class FilterExpressionTest {
     void evaluateComplexExpressions() {
         Lodging lodging = new Lodging("L1", "Cartagena", 3, 2, 120.0, false);
 
-        FilterExpression cartagenaFilter = new UbicationFilter("Cartagena");
+        FilterExpression cartagenaFilter = new LocationFilter("Cartagena");
         FilterExpression atLeastThreeRooms = new RoomFilter(3, new GreaterEqualEval());
         FilterExpression maxCost150 = new CostFilter(150.0, new LessEqualEval());
         FilterExpression atLeastTwoBathrooms = new BathroomFilter(2, new GreaterEqualEval());
@@ -47,7 +47,7 @@ class FilterExpressionTest {
 
         assertTrue(comfortableCartagenaLodging.evaluate(lodging));
 
-        FilterExpression bogotaFilter = new UbicationFilter("Bogota");
+        FilterExpression bogotaFilter = new LocationFilter("Bogota");
         FilterExpression cartagenaOrBogota = new OrOperator(cartagenaFilter, bogotaFilter);
 
         assertTrue(cartagenaOrBogota.evaluate(lodging));
@@ -74,7 +74,7 @@ class FilterExpressionTest {
                 new Lodging("L5", "Medellin", 2, 2, 90.0, false)
         );
 
-        FilterExpression cartagenaFilter = new UbicationFilter("Cartagena");
+        FilterExpression cartagenaFilter = new LocationFilter("Cartagena");
         FilterExpression atLeastTwoRooms = new RoomFilter(2, new GreaterEqualEval());
         FilterExpression atLeastTwoBathrooms = new BathroomFilter(2, new GreaterEqualEval());
         FilterExpression maxCost150 = new CostFilter(150.0, new LessEqualEval());
