@@ -5,22 +5,22 @@ import java.time.LocalDate;
 public class Payed extends ReservationState {
 
     @Override
-    public void checkIn(Reservation r) {
+    public String checkIn(Reservation r) {
         r.setCheckIn(LocalDate.now());
-        System.out.println("Check-in realizado. ¡Bienvenido, "
-            + r.getGuestName() + "!");
         r.setState(new InProgress());
+        return "Check-in realizado. ¡Bienvenido, "
+                + r.getGuestName() + "!";
     }
     @Override
-    public void cancel(Reservation r) {
-        System.out.println("Reserva cancelada. Penalización del 50%: $"
-            + r.getTotalPrice() * 0.50);
+    public String cancel(Reservation r) {
         r.setState(new Canceled());
+        return "Reserva cancelada. Penalización del 50%: $"
+                + String.valueOf(r.getTotalPrice() * 0.50);
     }
     @Override
-    public void requestRefund(Reservation r) {
-        System.out.println("Reembolso parcial procesado: $"
-            + r.getTotalPrice() * 0.50);
+    public String requestRefund(Reservation r) {
+        return "Reembolso parcial procesado: $"
+            + String.valueOf(r.getTotalPrice() * 0.50);
     }
 
 }

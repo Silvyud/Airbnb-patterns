@@ -3,19 +3,19 @@ package State;
 public class Confirmed extends ReservationState {
 
     @Override
-    public void pay(Reservation r) {
-        System.out.println("Pago realizado exitosamente.");
+    public String pay(Reservation r) {
         r.setState(new Payed());
+        return "Pago realizado exitosamente.";
     }
     @Override
-    public void cancel(Reservation r) {
-        System.out.println("Reserva cancelada. Penalización del 30%: $"
-            + r.getTotalPrice() * 0.30);
+    public String cancel(Reservation r) {
         r.setState(new Canceled());
+        return "Reserva cancelada. Penalización del 30%: $"
+                + String.valueOf(r.getTotalPrice() * 0.30);
     }
     @Override
-    public void requestRefund(Reservation r) {
-        System.out.println("Reembolso total procesado: $" + r.getTotalPrice());
+    public String requestRefund(Reservation r) {
+        return "Reembolso total procesado: $" + String.valueOf(r.getTotalPrice());
     }
 
 }

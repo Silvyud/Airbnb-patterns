@@ -3,14 +3,14 @@ package State;
 public class Pending extends ReservationState {
 
     @Override
-    public void confirm(Reservation r) {
-        System.out.println("Reserva confirmada por el anfitrión.");
+    public String confirm(Reservation r) {
         r.setState(new Confirmed());
+        return "Reserva confirmada por el anfitrión.";
     }
     @Override
-    public void cancel(Reservation r) {
-        System.out.println("Reserva cancelada. Sin penalización.");
+    public String cancel(Reservation r) {
         r.setState(new Canceled());
+        return "Reserva cancelada. Sin penalización.";
     }
 
 }
