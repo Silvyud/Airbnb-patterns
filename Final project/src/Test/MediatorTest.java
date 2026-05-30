@@ -2,6 +2,7 @@ package Test;
 
 import Mediator.*;
 import Utilities.Lodging;
+import Mediator.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
