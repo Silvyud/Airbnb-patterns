@@ -1,66 +1,45 @@
 package Test;
 
-import Bridge.InstantBooking;
-import Bridge.PendingApproval;
-import Bridge.Nequi;
-import Bridge.PayPal;
-import Bridge.Payment;
-import Bridge.Reservation;
+import Bridge.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BridgeTest {
 
     @Test
-    public void testInstantBookingNequi() {
-        // 1. Configurar el escenario: Alojamiento, Metodo de pago y Tipo de Reserva
-        String alojamiento = "Apartamento Vista al Mar";
-        Payment metodoPago = new Nequi();
-        Reservation reserva = new InstantBooking(alojamiento, metodoPago);
+    public void testReservaExitosaDescuentaSaldo() {
+        // 1. Configurar cuenta con buen saldo ($500)
+        Account cuentaCarlos = new Account("Carlos", 500.0);
+        Payment nequi = new Nequi();
 
-        // 2. Ejecutar la acción
-        String resultado = reserva.makeReservation(120.0);
+        // 2. Crear reserva
+        Reservation reserva = new InstantBooking("Cabaña Bosque", cuentaCarlos, nequi);
 
-        // 3. Verificar que se comporte como Reserva Instantánea Y use Nequi
-        assertTrue(resultado.contains("Reserva Instantánea"));
-        assertTrue(resultado.contains("Apartamento Vista al Mar"));
-        assertTrue(resultado.contains("Pago procesado a través de Nequi."));
+        // 3. Ejecutar reserva por $150
+        String resultado = reserva.makeReservation(150.0);
+
+        // 4. Verificar que fue exitosa y se descontó el dinero (500 - 150 = 350)
         assertTrue(resultado.contains("¡Confirmada de inmediato!"));
+        assertTrue(resultado.contains("Saldo restante: $350.0"));
+        assertEquals(350.0, cuentaCarlos.getBalance());
     }
 
     @Test
-    public void testPendingApprovalWithPayPal() {
-        // 1. Configurar un escenario diferente combinando al vuelo
-        String alojamiento = "Cabaña en el Bosque";
-        Payment metodoPago = new PayPal();
-        Reservation reserva = new PendingApproval(alojamiento, metodoPago);
+    public void testReservaFallaPorFondosInsuficientes() {
+        // 1. Configurar cuenta con poco saldo ($50)
+        Account cuentaAna = new Account("Ana", 50.0);
+        Payment paypal = new PayPal();
 
-        // 2. Ejecutar la acción
-        String resultado = reserva.makeReservation(250.0);
+        // 2. Crear reserva
+        Reservation reserva = new PendingApproval("Penthouse", cuentaAna, paypal);
 
-        // 3. Verificar que se comporte como Pendiente Y use PayPal
-        assertTrue(resultado.contains("Reserva con Aprobación Pendiente"));
-        assertTrue(resultado.contains("Cabaña en el Bosque"));
-        assertTrue(resultado.contains("Pago procesado a través de PayPal."));
-        assertTrue(resultado.contains("Esperando respuesta del anfitrión"));
-    }
+        // 3. Intentar hacer reserva por $200
+        String resultado = reserva.makeReservation(200.0);
 
-    @Test
-    public void testPendingApprovalWithNequi() {
-        // 1. Configurar escenario: Aprobación pendiente con pago por Nequi
-        String alojamiento = "Glamping de Lujo";
-        Payment metodoPago = new Nequi();
-        Reservation reserva = new PendingApproval(alojamiento, metodoPago);
-
-        // 2. Ejecutar la acción
-        String resultado = reserva.makeReservation(180.0);
-
-        // 3. Verificar que combine la lógica de aprobación con la plataforma Nequi
-        assertTrue(resultado.contains("Reserva con Aprobación Pendiente"));
-        assertTrue(resultado.contains("Glamping de Lujo"));
-        assertTrue(resultado.contains("Pago procesado a través de Nequi."));
-        assertTrue(resultado.contains("Esperando respuesta del anfitrión"));
-        assertFalse(resultado.contains("¡Confirmada de inmediato!")); // Asegurar que no actúe como instantánea
+        // 4. Verificar que fue rechazada y el saldo se mantuvo intacto
+        assertTrue(resultado.contains("Reserva Cancelada") || resultado.contains("Solicitud Rechazada"));
+        assertTrue(resultado.contains("ERROR: Fondos insuficientes"));
+        assertEquals(50.0, cuentaAna.getBalance()); // No se cobró nada
     }
 
 }
