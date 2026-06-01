@@ -1,4 +1,4 @@
-package Adapter;
+package Utilities;
 
 public class User{
     private final String name;
