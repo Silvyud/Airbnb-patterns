@@ -57,9 +57,6 @@ public class CompositeTest {
 
         // 2. Verificar que el cálculo recursivo sea correcto (2 + 2 + 2 + 5 + 4 = 15)
         assertEquals(15, resortEntero.getCapacity());
-
-        // 3. Imprimir por consola para ver la estructura de árbol (Opcional, útil para debugear)
-        System.out.println(resortEntero.toString());
     }
 
 }

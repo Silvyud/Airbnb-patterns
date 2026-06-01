@@ -4,7 +4,7 @@ package Bridge;
 public abstract class Reservation {
 
     private String accommodation;
-    private Account account; // Nueva relación según tu diagrama
+    private Account account;
     protected Payment payment;
 
     public Reservation(String accommodation, Account account, Payment payment) {
