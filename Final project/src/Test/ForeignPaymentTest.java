@@ -1,6 +1,7 @@
 package Test;
 
 import Adapter.*;
+import Utilities.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

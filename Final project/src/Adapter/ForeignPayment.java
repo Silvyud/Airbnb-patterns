@@ -1,5 +1,7 @@
 package Adapter;
 
+import Utilities.User;
+
 public class ForeignPayment implements Payment {
     private double changeRate;
     private User user;
