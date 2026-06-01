@@ -2,14 +2,20 @@ package Bridge;
 
 public class InstantBooking extends Reservation {
 
-    public InstantBooking(String accommodation, Payment payment) {
-        super(accommodation, payment);
+    public InstantBooking(String accommodation, Account account, Payment payment) {
+        super(accommodation, account, payment);
     }
 
     @Override
     public String makeReservation(double amount) {
-        return "Reserva Instantánea para [" + getAccommodation() + "] por valor de $" + amount + ".\n"
-                + payment.makePayment() + "\n¡Confirmada de inmediato!";
+        String resultadoPago = payment.makePayment(getAccount(), amount);
+
+        if (resultadoPago.contains("ERROR")) {
+            return "Reserva Cancelada para [" + getAccommodation() + "].\nMotivo: " + resultadoPago;
+        }
+
+        return "Reserva Instantánea para [" + getAccommodation() + "] procesada.\n"
+                + resultadoPago + "\n¡Confirmada de inmediato!";
     }
 
 }

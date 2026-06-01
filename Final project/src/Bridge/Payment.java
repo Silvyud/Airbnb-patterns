@@ -1,5 +1,5 @@
 package Bridge;
 
 public interface Payment {
-    String makePayment();
+    String makePayment(Account account, double amount);
 }

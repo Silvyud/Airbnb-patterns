@@ -2,15 +2,20 @@ package Bridge;
 
 public class PendingApproval extends Reservation {
 
-    public PendingApproval(String accommodation, Payment payment) {
-        super(accommodation, payment);
+    public PendingApproval(String accommodation, Account account, Payment payment) {
+        super(accommodation, account, payment);
     }
 
     @Override
     public String makeReservation(double amount) {
-        return "Reserva con Aprobación Pendiente para [" + getAccommodation() + "] por valor de $" + amount + ".\n"
-                + "Estado: Esperando respuesta del anfitrión...\n"
-                + payment.makePayment();
+        String resultadoPago = payment.makePayment(getAccount(), amount);
+
+        if (resultadoPago.contains("ERROR")) {
+            return "Solicitud Rechazada para [" + getAccommodation() + "].\nMotivo: " + resultadoPago;
+        }
+
+        return "Reserva con Aprobación Pendiente para [" + getAccommodation() + "].\n"
+                + resultadoPago + "\nEstado: Esperando respuesta del anfitrión...";
     }
 
 }
