@@ -32,4 +32,11 @@ public class Proxy implements AccommodationData {
         this.userAttemptingAccess = userAttemptingAccess;
     }
 
+    public void setRealAccommodation(Accommodation realAccommodation) {
+        this.realAccommodation = realAccommodation;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 }
