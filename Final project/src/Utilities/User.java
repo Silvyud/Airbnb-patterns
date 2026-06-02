@@ -22,4 +22,8 @@ public class User{
         }
         return false;
     }
+
+    public String getId() {
+        return id;
+    }
 }
