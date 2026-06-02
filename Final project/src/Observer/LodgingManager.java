@@ -25,7 +25,7 @@ public class LodgingManager {
 
     public void publishLodging(Lodging lodging) {
         freeLodgings.add(lodging);
-        String ubication = lodging.getUbication();
+        String ubication = lodging.getLocation();
         if(subscribers.containsKey(ubication)) {
             for(Subscriber subscriber : subscribers.get(ubication)) {
                 subscriber.update(lodging);

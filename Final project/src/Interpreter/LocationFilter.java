@@ -9,6 +9,6 @@ public class LocationFilter extends FilterExpression{
         this.value = location;
     }
     public boolean evaluate(Lodging lodging) {
-        return lodging.getUbication().equalsIgnoreCase(value);
+        return lodging.getLocation().equalsIgnoreCase(value);
     }
 }

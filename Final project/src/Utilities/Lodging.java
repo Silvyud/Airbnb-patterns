@@ -2,7 +2,7 @@ package Utilities;
 
 public class Lodging {
     private final String id;
-    private final String ubication;
+    private final String location;
     private final int numOfRooms;
     private final int numOfBathrooms;
     private final double costPerNight;
@@ -10,7 +10,7 @@ public class Lodging {
 
     public Lodging(String id, String ubication, int numOfRooms, int numOfBathrooms, double costPerNight, boolean reserved) {
         this.id = id;
-        this.ubication = ubication;
+        this.location = ubication;
         this.numOfRooms = numOfRooms;
         this.numOfBathrooms = numOfBathrooms;
         this.costPerNight = costPerNight;
@@ -28,8 +28,8 @@ public class Lodging {
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
     }
-    public String getUbication() {
-        return ubication;
+    public String getLocation() {
+        return location;
     }
 
     public int getNumOfRooms() {
@@ -42,6 +42,6 @@ public class Lodging {
 
     @Override
     public String toString() {
-        return "Lodging in " + ubication + " with " + numOfRooms + " rooms and " + numOfBathrooms + " bathrooms";
+        return "Lodging in " + location + " with " + numOfRooms + " rooms and " + numOfBathrooms + " bathrooms";
     }
 }

@@ -15,6 +15,12 @@ public class Mediator {
         ownerPercentage = 0.8; // Owners receive 80% of the booking fee
     }
 
+    public Mediator(double ownerPercentage) {
+        this.ownerPercentage = ownerPercentage;
+        owners = new HashMap<>();
+        bookings = new HashMap<>();
+    }
+
     public void publishLodging(Owner owner, Lodging lodging) {
         owners.put(lodging.getId(), owner);
         bookings.put(lodging.getId(), lodging);
